@@ -1,0 +1,63 @@
+ *{margin:0;padding:0;box-sizing:border-box}
+    ol{list-style:none}
+    .tab-container{
+      width: 50%;
+      margin:100px auto;
+      text-align: center;
+      
+    }
+    .tab-nav{
+      display:flex;
+      justify-content:center;
+    }
+    .tab-nav >li{
+      padding:0em 1em;
+      border-radius:5px 5px 0 0 ;
+      cursor: pointer;
+      font-size: 16px;
+      background: -moz-radial-gradient(50% 50%, #e596ab, #fff); 
+      background: -webkit-radial-gradient(50% 50%, #e596ab, #fff); 
+      background: -o-radial-gradient(50% 50%, #e596ab, #fff); 
+      background: -ms-radial-gradient(50% 50%, #e596ab, #fff); 
+      background: radial-gradient(50% 50%, #e596ab, #fff); 
+      color: #fff;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+    }
+    .tab-nav >li:hover{ 
+      background:  -moz-radial-gradient(50% 50%, #d65bc5, #fff); 
+      background:  -webkit-radial-gradient(50% 50%, #d65bc5, #fff); 
+      background:  -o-radial-gradient(50% 50%, #d65bc5, #fff); 
+      background:  -ms-radial-gradient(50% 50%, #d65bc5, #fff); 
+      background:  radial-gradient(50% 50%, #d65bc5, #fff);
+    }
+    .tab-nav >li.active{
+     
+      background:  -moz-radial-gradient(50% 50%, #c30b4e, #fff); 
+      background:  -webkit-radial-gradient(50% 50%, #c30b4e, #fff); 
+      background:  -o-radial-gradient(50% 50%, #c30b4e, #fff); 
+      background:  -ms-radial-gradient(50% 50%, #c30b4e, #fff); 
+       background:  radial-gradient(50% 50%, #c30b4e, #fff);
+    }
+    .tab-content{
+      transition: 0.3s;
+      margin: 0 auto;
+      width:60%;
+      display: flex;
+      border-radius:50px;
+      align-items:center;
+      justify-content: center;
+      min-height:20em;
+      line-height: 35px;
+      background: #ffc0cb;
+      color:#645452;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
+    }
+    .tab-content >li{
+      display:none
+    }
+    .tab-content>li.active{
+      display:block;
+    }

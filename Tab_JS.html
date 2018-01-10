@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="./index.css">
+  <title>原生JS写Tab组件</title>
+</head>
+<body>
+  <div class="tab-container" id="tab">
+   <ol class="tab-nav">
+     <li class="active">语句一</li>
+     <li>语句二</li> 
+     <li>语句三</li> 
+     <li>语句四</li>
+   </ol>
+   <ol class="tab-content">
+     <li class="active">我多想拥抱你,<br> 可惜时光之里山南水北,<br> 可惜你我中间人来人往。</li>
+     <li>你一直在我的伤口中幽居，<br>我放下过天地，却从未放下过你，<br>我生命中的千山万水，任你一一告别。</li>
+     <li>于千万人之中遇见你所要遇见的人，<br>于千万年之中，时间的无涯的荒野里，<br>没有早一步，也没有晚一步，<br>刚巧赶上了，<br>那也没有别的话可说，<br>惟有轻轻地问一声：<br>“噢，你也在这里吗？”</li>
+     <li>我行过许多地方的桥，<br>看过许多次数的云，<br>喝过许多种类的酒，<br>却只爱过一个正当最好年龄的人。</li>
+   </ol>
+
+  </div>
+   <script>
+    var tabNav = document.getElementsByClassName('tab-nav')[0]
+    var tabItem = tabNav.getElementsByTagName('li')
+    var len = tabItem.length;
+    var tabCon = document.getElementsByClassName('tab-content')[0]
+    var contItem = tabCon.getElementsByTagName('li')
+    for(var i=0;i<len;i++){
+      tabItem[i].onclick = function(e){
+        var li = e.currentTarget
+        li.classList.add('active')
+        var index = indexOf(li)
+        var bro = siblings(li)
+        for(var k=0;k<bro.length;k++){
+          if(bro[k].classList.contains('active') === true){
+            bro[k].className = ''
+          }
+        }
+        var txt = contItem[index]
+        var txtbro = siblings(txt)
+        txt.classList.add('active')
+        for(var j=0;j<txtbro.length;j++){
+          if(txtbro[j].classList.contains('active') === true){
+            txtbro[j].className = ''
+          }
+        }
+      }
+    }
+
+    function indexOf(element) {
+        let siblings = element.parentNode.children
+        for (let index = 0; index < siblings.length; index++) {
+          if (siblings[index] === element) {
+            return index
+          }
+        }
+        return -1
+      }
+    function siblings(element){
+            var sib=[];//定义一个数组，用来存element的兄弟元素
+            var prev=element.previousSibling;
+            while(prev){//先取element的哥哥们
+                    if(prev.nodeType===1){
+                            sib.push(prev);
+                    }
+                    prev=prev.previousSibling;        
+            }
+            sib.reverse();//把顺序反转一下
+            
+            var next=element.nextSibling;//再取element的弟弟
+            while(next){
+                    if(next.nodeType===1){
+                            sib.push(next);
+                    }
+                    next=next.nextSibling;
+            }
+            return sib;//最后按从老大到老小的顺序，把这一组元素返回       
+    }
+   </script>
+ </div>
+</body>
+</html>
